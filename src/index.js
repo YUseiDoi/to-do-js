@@ -17,13 +17,16 @@ const onClickAdd = () => {
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   completeButton.addEventListener("click", () => {
-    alert();
+    const deletetarget = completeButton.parentNode;
+    DeleteFromIncompleteList(deletetarget);
   });
 
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
-    alert();
+    // 押された削除ボタンのdivタグを削除
+    const deletetarget = deleteButton.parentNode;
+    DeleteFromIncompleteList(deletetarget);
   });
 
   // divタグの下にliタグ
@@ -34,6 +37,11 @@ const onClickAdd = () => {
   // 未完了リストに追加
   document.getElementById("incomplete-list").appendChild(div);
   console.log(div);
+};
+
+// 未完了リストから要素を削除
+const DeleteFromIncompleteList = (target) => {
+  document.getElementById("incomplete-list").removeChild(target);
 };
 
 document
